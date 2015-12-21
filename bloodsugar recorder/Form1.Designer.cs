@@ -39,6 +39,8 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.listBResult = new System.Windows.Forms.ListBox();
+            this.btnShowDict = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -46,6 +48,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnShowDict);
+            this.groupBox1.Controls.Add(this.listBResult);
             this.groupBox1.Controls.Add(this.btnResult);
             this.groupBox1.Controls.Add(this.lblEnterData);
             this.groupBox1.Controls.Add(this.testDate);
@@ -53,14 +57,14 @@
             this.groupBox1.Controls.Add(this.lblDate);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 168);
+            this.groupBox1.Size = new System.Drawing.Size(728, 168);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Blood Sugar Levels";
             // 
             // btnResult
             // 
-            this.btnResult.Location = new System.Drawing.Point(251, 96);
+            this.btnResult.Location = new System.Drawing.Point(550, 95);
             this.btnResult.Name = "btnResult";
             this.btnResult.Size = new System.Drawing.Size(172, 42);
             this.btnResult.TabIndex = 6;
@@ -71,7 +75,7 @@
             // lblEnterData
             // 
             this.lblEnterData.AutoSize = true;
-            this.lblEnterData.Location = new System.Drawing.Point(248, 16);
+            this.lblEnterData.Location = new System.Drawing.Point(547, 16);
             this.lblEnterData.Name = "lblEnterData";
             this.lblEnterData.Size = new System.Drawing.Size(175, 26);
             this.lblEnterData.TabIndex = 5;
@@ -80,7 +84,7 @@
             // 
             // testDate
             // 
-            this.testDate.Location = new System.Drawing.Point(6, 59);
+            this.testDate.Location = new System.Drawing.Point(9, 32);
             this.testDate.Name = "testDate";
             this.testDate.Size = new System.Drawing.Size(194, 20);
             this.testDate.TabIndex = 1;
@@ -88,7 +92,7 @@
             // 
             // txtResult
             // 
-            this.txtResult.Location = new System.Drawing.Point(251, 59);
+            this.txtResult.Location = new System.Drawing.Point(550, 59);
             this.txtResult.Name = "txtResult";
             this.txtResult.Size = new System.Drawing.Size(172, 20);
             this.txtResult.TabIndex = 4;
@@ -96,7 +100,7 @@
             // lblDate
             // 
             this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(3, 43);
+            this.lblDate.Location = new System.Drawing.Point(6, 16);
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(66, 13);
             this.lblDate.TabIndex = 0;
@@ -108,14 +112,15 @@
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(6, 19);
+            this.chart1.Location = new System.Drawing.Point(0, 19);
             this.chart1.Name = "chart1";
+            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "Sugar Levels";
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(438, 198);
+            this.chart1.Size = new System.Drawing.Size(722, 198);
             this.chart1.TabIndex = 2;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -125,16 +130,34 @@
             this.groupBox2.Controls.Add(this.chart1);
             this.groupBox2.Location = new System.Drawing.Point(12, 216);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(450, 223);
+            this.groupBox2.Size = new System.Drawing.Size(728, 223);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Recorded Levels Over Time";
+            // 
+            // listBResult
+            // 
+            this.listBResult.FormattingEnabled = true;
+            this.listBResult.Location = new System.Drawing.Point(9, 58);
+            this.listBResult.Name = "listBResult";
+            this.listBResult.Size = new System.Drawing.Size(194, 95);
+            this.listBResult.TabIndex = 7;
+            // 
+            // btnShowDict
+            // 
+            this.btnShowDict.Location = new System.Drawing.Point(225, 32);
+            this.btnShowDict.Name = "btnShowDict";
+            this.btnShowDict.Size = new System.Drawing.Size(138, 47);
+            this.btnShowDict.TabIndex = 8;
+            this.btnShowDict.Text = "Show Previous Results";
+            this.btnShowDict.UseVisualStyleBackColor = true;
+            this.btnShowDict.Click += new System.EventHandler(this.btnShowDict_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 461);
+            this.ClientSize = new System.Drawing.Size(752, 461);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "Form1";
@@ -157,6 +180,8 @@
         private System.Windows.Forms.Label lblEnterData;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button btnResult;
+        private System.Windows.Forms.Button btnShowDict;
+        private System.Windows.Forms.ListBox listBResult;
     }
 }
 
