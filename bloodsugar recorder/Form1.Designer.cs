@@ -37,12 +37,12 @@
             this.testDate = new System.Windows.Forms.DateTimePicker();
             this.txtResult = new System.Windows.Forms.TextBox();
             this.lblDate = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chrBloodS = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.listBResult = new System.Windows.Forms.ListBox();
             this.btnShowDict = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrBloodS)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -106,28 +106,29 @@
             this.lblDate.TabIndex = 0;
             this.lblDate.Text = "Date of Test";
             // 
-            // chart1
+            // chrBloodS
             // 
+            this.chrBloodS.BackColor = System.Drawing.SystemColors.ActiveCaption;
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.chrBloodS.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(0, 19);
-            this.chart1.Name = "chart1";
-            this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
+            this.chrBloodS.Legends.Add(legend1);
+            this.chrBloodS.Location = new System.Drawing.Point(0, 19);
+            this.chrBloodS.Name = "chrBloodS";
+            this.chrBloodS.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.EarthTones;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
             series1.Name = "Sugar Levels";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(722, 198);
-            this.chart1.TabIndex = 2;
-            this.chart1.Text = "chart1";
-            this.chart1.Click += new System.EventHandler(this.chart1_Click);
+            this.chrBloodS.Series.Add(series1);
+            this.chrBloodS.Size = new System.Drawing.Size(722, 198);
+            this.chrBloodS.TabIndex = 2;
+            this.chrBloodS.Text = "chart1";
+            this.chrBloodS.Click += new System.EventHandler(this.chart1_Click);
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.chart1);
+            this.groupBox2.Controls.Add(this.chrBloodS);
             this.groupBox2.Location = new System.Drawing.Point(12, 216);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(728, 223);
@@ -164,7 +165,7 @@
             this.Text = "Form1";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chrBloodS)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -174,7 +175,7 @@
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label lblDate;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chrBloodS;
         private System.Windows.Forms.DateTimePicker testDate;
         private System.Windows.Forms.TextBox txtResult;
         private System.Windows.Forms.Label lblEnterData;
