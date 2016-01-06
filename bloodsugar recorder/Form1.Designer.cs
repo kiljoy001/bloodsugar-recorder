@@ -32,6 +32,8 @@
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnShowDict = new System.Windows.Forms.Button();
+            this.listBResult = new System.Windows.Forms.ListBox();
             this.btnResult = new System.Windows.Forms.Button();
             this.lblEnterData = new System.Windows.Forms.Label();
             this.testDate = new System.Windows.Forms.DateTimePicker();
@@ -39,8 +41,6 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.chrBloodS = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.listBResult = new System.Windows.Forms.ListBox();
-            this.btnShowDict = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chrBloodS)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -61,6 +61,24 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Blood Sugar Levels";
+            // 
+            // btnShowDict
+            // 
+            this.btnShowDict.Location = new System.Drawing.Point(225, 32);
+            this.btnShowDict.Name = "btnShowDict";
+            this.btnShowDict.Size = new System.Drawing.Size(138, 47);
+            this.btnShowDict.TabIndex = 8;
+            this.btnShowDict.Text = "Show Previous Results";
+            this.btnShowDict.UseVisualStyleBackColor = true;
+            this.btnShowDict.Click += new System.EventHandler(this.btnShowDict_Click);
+            // 
+            // listBResult
+            // 
+            this.listBResult.FormattingEnabled = true;
+            this.listBResult.Location = new System.Drawing.Point(9, 58);
+            this.listBResult.Name = "listBResult";
+            this.listBResult.Size = new System.Drawing.Size(194, 95);
+            this.listBResult.TabIndex = 7;
             // 
             // btnResult
             // 
@@ -135,24 +153,6 @@
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Recorded Levels Over Time";
-            // 
-            // listBResult
-            // 
-            this.listBResult.FormattingEnabled = true;
-            this.listBResult.Location = new System.Drawing.Point(9, 58);
-            this.listBResult.Name = "listBResult";
-            this.listBResult.Size = new System.Drawing.Size(194, 95);
-            this.listBResult.TabIndex = 7;
-            // 
-            // btnShowDict
-            // 
-            this.btnShowDict.Location = new System.Drawing.Point(225, 32);
-            this.btnShowDict.Name = "btnShowDict";
-            this.btnShowDict.Size = new System.Drawing.Size(138, 47);
-            this.btnShowDict.TabIndex = 8;
-            this.btnShowDict.Text = "Show Previous Results";
-            this.btnShowDict.UseVisualStyleBackColor = true;
-            this.btnShowDict.Click += new System.EventHandler(this.btnShowDict_Click);
             // 
             // Form1
             // 

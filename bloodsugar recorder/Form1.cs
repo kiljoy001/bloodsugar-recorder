@@ -100,23 +100,26 @@ namespace bloodsugar_recorder
         private void chart1_Click(object sender, EventArgs e)
         {
             ReadIt();
-            DateTime lastYear = DateTime.Now.AddYears(-120);
-            DateTime thisDate = DateTime.Now;
-            chrBloodS.ChartAreas.Add("Blood Sugar Levels");
-            //declaring the Xvalue type to be date time
+            //DateTime lastYear = DateTime.Now.AddYears(-120);
+            //DateTime thisDate = DateTime.Now;
+            ////chrBloodS.ChartAreas.Add("Blood Sugar Levels");
+            ////declaring the Xvalue type to be date time
             chrBloodS.Series[0].XValueType = ChartValueType.DateTime;
-            //Chart's minimun date set to 120 years before todays date
-            chrBloodS.ChartAreas["Date"].AxisX.Minimum = lastYear.ToOADate();
-            chrBloodS.ChartAreas["Date"].AxisX.Maximum = thisDate.ToOADate();
+            ////Chart's minimun date set to 120 years before todays date
+            //chrBloodS.ChartAreas[0].AxisX.Minimum = lastYear.ToOADate();
+            //chrBloodS.ChartAreas[0].AxisX.Maximum = thisDate.ToOADate();
             foreach (System.Collections.DictionaryEntry pair in resultStore)
             {
+                
                 //creating a new datetime object that takes the key from the dictionary and then converts it to a string to be parsed as a double to be used for fromOADate (total hack).
                 System.DateTime x = DateTime.FromOADate(double.Parse(pair.Key.ToString()));
-                DataPoint chartData = new DataPoint()
-                {
-                    AxisLabel = "Series",
-                    YValues = new double[] { (int)pair.Value }
-                };
+                this.chrBloodS.Series[0].Points.AddXY(x.ToOADate(), pair.Value);
+
+                //DataPoint chartData = new DataPoint()
+                //{
+                //    AxisLabel = "Series",
+                //    YValues = new double[] { (int)pair.Value }
+                //};
 
             }
         }
