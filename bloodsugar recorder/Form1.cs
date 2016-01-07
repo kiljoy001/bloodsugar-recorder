@@ -47,9 +47,22 @@ namespace bloodsugar_recorder
             }
         }
 
+        public void displayChart(Chart mainChart)
+        {
+            chrBloodS.Series[0].XValueType = ChartValueType.DateTime;
+            foreach (System.Collections.DictionaryEntry pair in resultStore)
+            {
+                //creating a new datetime object that takes the key from the dictionary and then converts it to a string to be parsed as a double to be used for fromOADate (total hack).
+                System.DateTime x = DateTime.FromOADate(double.Parse(pair.Key.ToString()));
+                this.chrBloodS.Series[0].Points.AddXY(x.ToOADate(), pair.Value);
+            }
+        }
+
         public Form1()
         {
             InitializeComponent();
+            ReadIt();
+            displayChart(chrBloodS);
         }
 
         private void lblEnterData_Click(object sender, EventArgs e)
@@ -65,7 +78,8 @@ namespace bloodsugar_recorder
         private void btnResult_Click(object sender, EventArgs e)
         {
             StreamWriter sw = null;
-            try {
+            try
+            {
                 //create a variable to store the value of the date & time
                 double date = DateTime.Now.ToOADate();
                 //create a variable to store the test result, makes sure that it is a number being entered
@@ -73,18 +87,18 @@ namespace bloodsugar_recorder
 
                 //Add testDate value to the dictionary
                 resultStore.Add(date, testResult);
-                
-                
+
+
                 //open file & append
                 sw = File.AppendText(@"bloodsugar.txt");
-                
+
                 //write to
                 sw.WriteLine(date + " " + testResult);
                 MessageBox.Show("Entry Saved!");
-                
-                
+
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
 
@@ -95,6 +109,7 @@ namespace bloodsugar_recorder
                 if (sw != null)
                     sw.Close();
             }
+
         }
 
         private void chart1_Click(object sender, EventArgs e)
@@ -110,7 +125,7 @@ namespace bloodsugar_recorder
             //chrBloodS.ChartAreas[0].AxisX.Maximum = thisDate.ToOADate();
             foreach (System.Collections.DictionaryEntry pair in resultStore)
             {
-                
+
                 //creating a new datetime object that takes the key from the dictionary and then converts it to a string to be parsed as a double to be used for fromOADate (total hack).
                 System.DateTime x = DateTime.FromOADate(double.Parse(pair.Key.ToString()));
                 this.chrBloodS.Series[0].Points.AddXY(x.ToOADate(), pair.Value);
@@ -126,11 +141,33 @@ namespace bloodsugar_recorder
         private void btnShowDict_Click(object sender, EventArgs e)
         {
             ReadIt();
+            listBResult.Items.Clear();
             foreach (System.Collections.DictionaryEntry pair in resultStore)
             {
                 //iterates over entire dictionary and displays all test results to a text box
                 listBResult.Items.Add(DateTime.FromOADate(double.Parse(pair.Key.ToString())) + " " + pair.Value + " " + "mg/l" + "\n");
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ReadIt();
+
+            ////declaring the Xvalue type to be date time
+            chrBloodS.Series[0].XValueType = ChartValueType.DateTime;
+            //goes through the dictionary and puts it in the chart
+            foreach (System.Collections.DictionaryEntry pair in resultStore)
+            {
+
+                //creating a new datetime object that takes the key from the dictionary and then converts it to a string to be parsed as a double to be used for fromOADate (total hack).
+                System.DateTime x = DateTime.FromOADate(double.Parse(pair.Key.ToString()));
+                this.chrBloodS.Series[0].Points.AddXY(x.ToOADate(), pair.Value);
+            }
+        }
+
+        private void printToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
