@@ -72,7 +72,23 @@ namespace bloodsugar_recorder
 
         private void button1_Click(object sender, EventArgs e)
         {
-
+            //read it first
+            ReadIt();
+            //convert the date time picker choice to OADate
+            double convert = testDate.Value.ToOADate();
+            foreach (System.Collections.DictionaryEntry pair in resultStore)
+            {
+                if (convert == pair.Key)
+                {
+                    //iterates over entire dictionary and displays one test results to a list box
+                    listBResult.Items.Add(DateTime.FromOADate(double.Parse(pair.Key.ToString())) + " " + pair.Value + " " + "mg/l" + "\n");
+                }
+                else
+                {
+                    MessageBox.Show("Results Not Found");   
+                }
+            }
+            
         }
 
         private void btnResult_Click(object sender, EventArgs e)
